@@ -42,20 +42,20 @@ class Airplane {
 */
 
 class Person {
-  constructor(atrs){
-    this.name = atrs.name;
-    this.age = atrs.age;
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
     this.stomach = [];
   }
 
-  eat(){
-    if(this.stomach.length <= 10){
-      return this.stomach
+  eat(edible){
+    if(this.stomach.length < 10){
+       this.stomach.push(edible);
     }
   }  
 
   poop(){
-    this.stomach = [];
+    this.stomach.length = 0;
   }
 
   toString(){
@@ -174,8 +174,22 @@ class Instructor extends Lambdasian {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 //child
-class Student {
-   
+class Student extends Lambdasian{
+  constructor(attrs){
+  super(attrs);
+  this.previousBackground = attrs.previousBackground;
+  this.className = attrs.className;
+  this.favSubjects = attrs.favSubjects;
+  }
+  listSubjects(favSubjects){
+    return `${this.favSubjects}!`;
+  }
+  PRAssignment(){
+    return `${this.name} has submitted a PR for sql`;
+  }
+  sprintChallenge(){
+    return `${this.name} has begun sprint challenge on sql`
+  }
 }
 
 /*
@@ -192,8 +206,18 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 //grandchild
-class ProjectManager {
-   
+class ProjectManager extends Instructor{
+  constructor(attrs){
+  super(attrs);
+  this.gradClassName = attrs.gradClassName;
+  this.favInstructor = attrs.favInstructor;
+  } 
+  standUp(){
+    return `${this.name} announces to ${channel}, @channel standy times!`
+  }
+  debugsCode(){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
+  }
 }
 /*
   STRETCH PROBLEM (no tests!)
