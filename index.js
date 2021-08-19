@@ -42,7 +42,26 @@ class Airplane {
 */
 
 class Person {
-  
+  constructor(atrs){
+    this.name = atrs.name;
+    this.age = atrs.age;
+    this.stomach = [];
+  }
+
+  eat(){
+    if(this.stomach.length <= 10){
+      return this.stomach
+    }
+  }  
+
+  poop(){
+    this.stomach = [];
+  }
+
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
+
 }
 
 /*
@@ -99,7 +118,14 @@ class Car {
 */
 //parent
 class Lambdasian {
-  
+  constructor(attrs){
+    this.name = attrs.name;
+    this.age = attrs.age;
+    this.location = attrs.location;
+  }
+  speak(name, location){
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
 }
 
 /*
@@ -122,6 +148,13 @@ class Instructor extends Lambdasian {
     super(attrs);
     this.specialty = attrs.specialty;
     this.favLanguage = attrs.favLanguage;
+    this.catchPhrase = attrs.catchPhrase;
+  }
+  demo(subject){
+    return `Today we are learning about ${subject}`
+  }
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}`
   }
 
 }
